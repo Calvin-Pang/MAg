@@ -22,6 +22,6 @@ import timm
 The script ***train.py*** and other scripts useful in Timm can be obtained from this link: https://github.com/rwightman/pytorch-image-models 
 Also, here are some very helpful links that teachs you how to use Timm: https://fastai.github.io/timmdocs/ and https://rwightman.github.io/pytorch-image-models/
 
-2.Secondly, after using the above process to obtain the classification model in the patch-level, you can use ***2.0.patch2image_counting.ipynb*** to make the patch-level prediction. In this stage, just follow the operation of the code in the notebook and you can get patch-level probabilities and histogram-based features. NOTE: in our experiments, we use xlsx format files to save predicted probability scores and other data. You can also freely modify the code to use other formats such as json format files to save the results, but it may make the code more complicated.
+2.Secondly, after using the above process to obtain the classification model in the patch-level, you can use **2.0.patch2image_counting.ipynb** to make the patch-level prediction. In this stage, just follow the operation of the code in the notebook and you can get patch-level probabilities and histogram-based features. NOTE: in our experiments, we use xlsx format files to save predicted probability scores and other data. You can also freely modify the code to use other formats such as json format files to save the results, but it may make the code more complicated.
 
 3.Finally, you can use 2.1 or 2.2 to train MAg model in the patient-level and test it.
