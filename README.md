@@ -9,6 +9,7 @@ The proposed method is shown in figure below:
 
 # File structure
 Here is the structure of the MAg file:
+
 ![image](https://user-images.githubusercontent.com/72646258/138487068-c231137c-0da2-4850-8fe8-104faf5d5cc8.png)
 
 # Dataset prepare
