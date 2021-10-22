@@ -13,7 +13,7 @@ The proposed method is shown in figure below:
 # How to use MAg?
 The code of our method is in the demo file. Follow the steps below, you can easily use MAg to complete training and prediction.
 
-1.Firstly, please use **1.patch-level classification training.ipynb** to do patch-level training and get classification models. The Timm library is such a creative invention that it can help you easily complete this training process. For example, if you want to use ResNet18 in this stage, just use the code below:
+1.Firstly, please use **1.patch-level classification training.ipynb** to do patch-level training and get classification models. The Timm library is such a creative invention that it can help you easily complete this training process. For example, if you want to use ResNet18 in this stage, just use the code below after entering the working file:
 
 ```
 import timm
@@ -22,4 +22,6 @@ import timm
 The script ***train.py*** and other scripts useful in Timm can be obtained from this link: https://github.com/rwightman/pytorch-image-models 
 Also, here are some very helpful links that teachs you how to use Timm: https://fastai.github.io/timmdocs/ and https://rwightman.github.io/pytorch-image-models/
 
-2.Secondly, use 2.0.patch2image_counting.ipynb to get patch-level probabilities and histogram-based features. Finally, you can use 2.1 or 2.2 to train MAg model in the patient-level and test it.
+2.Secondly, after using the above process to obtain the classification model in the patch-level, you can use ***2.0.patch2image_counting.ipynb*** to make the patch-level prediction. In this stage, just follow the operation of the code in the notebook and you can get patch-level probabilities and histogram-based features. NOTE: in our experiments, we use xlsx format files to save predicted probability scores and other data. You can also freely modify the code to use other formats such as json format files to save the results, but it may make the code more complicated.
+
+3.Finally, you can use 2.1 or 2.2 to train MAg model in the patient-level and test it.
