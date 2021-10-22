@@ -17,7 +17,7 @@ Here is the structure of the MAg file:
 
 2.We have split the CRC_DX and STAD datasets into training set, validation set and testing set in the patient-level. So after downloading them from the link, please split the dataset according to the patient name we list in the **name_patient** file. 
 
-3.Certainly, if you want to change the way of splitting the data set, you can also split the data set yourself. For your reference, you can use the code in link https://github.com/jnkather/MSIfromHE/blob/master/step_05_split_train_test.m to do this split.
+3.Certainly, if you want to change the way of splitting the data set, you can also split the data set by yourself. For your reference, you can use the code in link https://github.com/jnkather/MSIfromHE/blob/master/step_05_split_train_test.m to do this split.
 # How to use MAg?
 The code of our method is in the **demo** file. Follow the steps below, you can easily use MAg to complete training and prediction.
 
