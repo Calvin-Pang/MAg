@@ -11,7 +11,7 @@ The proposed method is shown in figure below:
 
 3.Certainly, if you want to change the way of splitting the data set, you can also split the data set yourself. For your reference, you can use the code in link https://github.com/jnkather/MSIfromHE/blob/master/step_05_split_train_test.m to do this split.
 # How to use MAg?
-The code of our method is in the demo file. Follow the steps below, you can easily use MAg to complete training and prediction.
+The code of our method is in the **demo** file. Follow the steps below, you can easily use MAg to complete training and prediction.
 
 1.Firstly, please use **1.patch-level classification training.ipynb** to do patch-level training and get classification models. The Timm library is such a creative invention that it can help you easily complete this training process. For example, if you want to use ResNet18 in this stage, just use the code below after entering the working file:
 
@@ -22,8 +22,15 @@ import timm
 The script **train.py** and other scripts useful in Timm can be obtained from this link: https://github.com/rwightman/pytorch-image-models 
 Also, here are some very helpful links that teachs you how to use Timm: https://fastai.github.io/timmdocs/ and https://rwightman.github.io/pytorch-image-models/
 
-2.Secondly, after using the above process to obtain the classification model in the patch-level, you can use **2.0.patch2image_counting.ipynb** to make the patch-level prediction. In this stage, just follow the operation of the code in the notebook and you can get patch-level probabilities and histogram-based features. 
+2.Secondly, after using the above process to obtain the classification model in the patch-level, you can use **2.0.patch2image_counting.ipynb** to make the patch-level prediction. In this process, just follow the operation of the code in the notebook and you can get patch-level probabilities and histogram-based features. 
 
 **NOTE**: in our experiments, we use xlsx format files to save predicted probability scores and other data. You can also freely modify the code to use other formats such as json format files to save the results, but it may make the code more complicated.
 
-3.Finally, you can use 2.1 or 2.2 to train MAg model in the patient-level and test it.
+3.After getting the patch-level model and patient-level histogram-based features from processes above, you can now train the patient-level classification models. Here we provide two different methods to complete this training, which means you can train it in an SVM with **2.1.patient-level MAg-SVM_histogram.ipynb** or in a two-layer fully-connected neural network with **2.2.patient-level MAg-network.ipynb**. If your dataset is not very large, we suggest you using the **2.1** while you had better use **2.2** if you have a hugh dataset(e.g, a dataset which contains 100000 patients).
+
+4.Both the **2.1** and the **2.2** contain code that can do a simple testing process. After getting the patient-level classification model, just continue following the code in these two notebooks and you will get the final result (e.g, F1 score, BACC and AUC).
+
+**NOTE**: the patient-level training also require you to follow the split you did before, so please remember to save the patient-level histogram-based features in xlsx files like train.xlsx, validation.xlsx and test.xlsx
+
+5.In the **demo** file, we also provide some notebooks whose file names start with 0. These demos are used by us in our experiment. Although they are not directly related to the MAg process, we think they may be able to help you in your own experiment. Their roles are different. For example, **0.3.confusion_matrix.ipynb** can help you calculate a patient-level confusion matrix. The role of each demo can be viewed at the beginning of their code.
+
