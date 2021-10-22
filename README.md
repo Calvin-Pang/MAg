@@ -8,5 +8,7 @@ The proposed method is shown in figure below:
 1.The whole patch-level datasets can be downloaded from https://zenodo.org/record/2530835#.YXIlO5pBw2z. Each patch in this folder belongs to a patient, and the file name of the patch can be used to get to which patient it belongs. For example, the patch **blk-AAAFIYHTSVIE-TCGA-G4-6309-01Z-00-DX1.png** belongs to the patient **TCGA-G4-6309**.
 
 2.We have split the CRC_DX and STAD datasets into training set, validation set and testing set in the patient-level. So after downloading them from the link, please split the dataset according to the patient name we list in the **name_patient** file. 
+
+3.Certainly, if you want to change the way of splitting the data set, you can also split the data set yourself. For your reference, you can use the code in link https://github.com/jnkather/MSIfromHE/blob/master/step_05_split_train_test.m to do this split.
 # How to use MAg?
 The code of our method is in the demo file. Firstly, please use 1.patch-level classification training.ipynb to get patch-level classification model. Secondly, use 2.0.patch2image_counting.ipynb to get patch-level probabilities and histogram-based features. Finally, you can use 2.1 or 2.2 to train MAg model in the patient-level and test it.
