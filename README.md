@@ -14,6 +14,7 @@ The proposed method is shown in figure below:
 The code of our method is in the demo file. Follow the steps below, you can easily use MAg to complete training and prediction.
 
 1.Firstly, please use **1.patch-level classification training.ipynb** to do patch-level training and get classification models. The Timm library is such a creative invention that it can help you easily complete this training process. For example, if you want to use ResNet18 in this stage, just use the code below:
+
 '''
 #import timm
 #!python train.py path_to_your_dataset -d ImageFolder --drop 0.25 --train-split train --val-split validation --pretrained --model resnet18 --num-classes 2 --opt adam --lr 1e-6 --hflip 0.5 --epochs 40 -b 32 --output path_to_your_model
