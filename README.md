@@ -5,7 +5,7 @@ The comparison of our method and the two common used method (counting and averag
 <div align=center><img src="https://user-images.githubusercontent.com/72646258/138407969-c2e5ce61-4957-487f-98b9-a249042fcdf4.png" height="500"/><br/></div>
 The proposed method is shown in figure below:
 
-<div align=center><img src="https://user-images.githubusercontent.com/72646258/138407814-e2888b56-878c-4ea3-998a-4ffa511e1c95.png" height="500"/><br/></div>
+<div align=center><img src="https://user-images.githubusercontent.com/72646258/138407814-e2888b56-878c-4ea3-998a-4ffa511e1c95.png" height="300"/><br/></div>
 
 # Dataset prepare
 1.The whole patch-level datasets can be downloaded from https://zenodo.org/record/2530835#.YXIlO5pBw2z. Each patch in this folder belongs to a patient, and the file name of the patch can be used to get to which patient it belongs. For example, the patch **blk-AAAFIYHTSVIE-TCGA-G4-6309-01Z-00-DX1.png** belongs to the patient **TCGA-G4-6309**.
