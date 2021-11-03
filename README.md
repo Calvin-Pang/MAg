@@ -21,6 +21,7 @@ Here is the structure of the MAg file:
 
 # Data description 
 For your experiment to go smoothly, this is the description of some data you may use to input or output in the process of reproducing the MAg：
+
 1.In the code **2.0.patch2image_counting.ipynb**, you will use the files which supply names of patients and these files are placed in the file **/MAg/name_patients/**. The names of patients are provided in this folder according to different datasets, sets and classes. 
 
 **NOTE**: in the experiment, you will encounter some patient-level for loops in the code, so please modify the **range** parameters in the for loops according to the number of patients in different sets and different classes.
