@@ -63,4 +63,4 @@ Below is the results of our experiments and comparison between MAg and two commo
 <img src="https://user-images.githubusercontent.com/72646258/138465280-e289b796-d3db-47c3-9c79-a2b355fc156f.png" height="220"/><img src="https://user-images.githubusercontent.com/72646258/138465330-1668c95f-b545-4cdb-93c3-a219e7d8be5c.png" height="220"/><br/>
 
 # Some supplements
-Because our research is still in a very early stage of exploration, our code may have some defects. In the future, we may continue to improve the code, hoping that it can achieve higher portability and modularity. If you encounter any problems in the process of using MAg or have any suggestions for this research, you can let us know in github or contact us directly :blush:
+Because our research is still in a very early stage of exploration, our code may have some defects. In the future, we may continue to improve the code, hoping that it can achieve higher portability and modularity. If you encounter any problems in the process of using MAg or have any suggestions for this research, please let us know in github or contact us directly :blush:
