@@ -18,6 +18,19 @@ Here is the structure of the MAg file:
 2.We have split the CRC_DX and STAD datasets into training set, validation set and testing set in the patient-level. So after downloading them from the link, please split the dataset according to the patient name we list in the **name_patient** file. 
 
 3.Certainly, if you want to change the way of splitting the data set, you can also split the data set by yourself. For your reference, you can use the code in link https://github.com/jnkather/MSIfromHE/blob/master/step_05_split_train_test.m to do this split.
+
+# Data description 
+For your experiment to go smoothly, this is the description of some data you may use to input or output in the process of reproducing the MAg：
+1.In the code **2.0.patch2image_counting.ipynb**, you will use the files which supply names of patients and these files are placed in the file **/MAg/name_patients/**. The names of patients are provided in this folder according to different datasets, sets and classes. 
+
+**NOTE**: in the experiment, you will encounter some patient-level for loops in the code, so please modify the **range** parameters in the for loops according to the number of patients in different sets and different classes.
+
+2.In the code **2.1.patient-level MAg-SVM_histogram.ipynb** and **2.2.patient-level MAg-network.ipynb**, you will use histogram-based features as the new training set, testing set and validation set, which will be obtained by **2.0**. If you just want to test the performance of MAg instead of doing a complete reproduction, we also provide the histogram-based features I got in this folder: **/MAg/datasets** , according to different patch-level datasets, sets, models and classes. 
+
+3.In order to compare the performance of MAg and other baselines, you may also use the results of other baselines in the code. We have provided the results with counting baseline in this folder: **/MAg/results/counting_baselines_results** according to different patch-level classification models, which can also been obtained from **2.0**.
+
+4.Moreover, for your reference, we provide the results of each patch in this folder: **/MAg/results/patch_level_result**.
+
 # How to use MAg?
 The code of our method is in the **demo** file. Follow the steps below, you can easily use MAg to complete training and prediction.
 
