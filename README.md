@@ -26,7 +26,7 @@ For your experiment to go smoothly, this is the description of some data you may
 
 **NOTE**: in the experiment, you will encounter some patient-level for loops in the code, so please modify the **range** parameters in the for loops according to the number of patients in different sets and different classes.
 
-2.In the code **2.1.patient-level MAg-SVM_histogram.ipynb** and **2.2.patient-level MAg-network.ipynb**, you will use histogram-based features as the new training set, testing set and validation set, which will be obtained by **2.0**. If you just want to test the performance of MAg instead of doing a complete reproduction, we also provide the histogram-based features I got in this folder: **/MAg/datasets** , according to different patch-level datasets, sets, models and classes. 
+2.In the code **2.1.patient-level MAg-SVM_histogram.ipynb** and **2.2.patient-level MAg-network.ipynb**, you will use histogram-based features as the new training set, testing set and validation set, which will be obtained by **2.0**. If you just want to test the performance of MAg instead of doing a complete reproduction, we also provide the histogram-based features in our experiments here: **/MAg/datasets** , according to different patch-level datasets, sets, models and classes. 
 
 3.In order to compare the performance of MAg and other baselines, you may also use the results of other baselines in the code. We have provided the results with counting baseline in this folder: **/MAg/results/counting_baselines_results** according to different patch-level classification models, which can also been obtained from **2.0**.
 
