@@ -32,6 +32,8 @@ For your experiment to go smoothly, this is the description of some data you may
 
 4.Moreover, for your reference, we provide the results of each patch in this folder: **/MAg/results/patch_level_result**.
 
+5.We also provide names of patches in the folder **/MAg/name_patch**
+
 # How to use MAg?
 The code of our method is in the **demo** file. Follow the steps below, you can easily use MAg to complete training and prediction.
 
