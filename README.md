@@ -58,7 +58,7 @@ Also, here are some very helpful links that teachs you how to use Timm: https://
 5.In the **demo** file, we also provide some notebooks whose file names start with 0. These demos are used by us in our experiment. Although they are not directly related to the MAg process, we think they may be able to help you in your own experiment. Their roles are different. For example, **0.3.confusion_matrix.ipynb** can help you calculate a patient-level confusion matrix. The role of each demo can be viewed at the beginning of their code.
 
 # Or you can try the MAg_lib!
-As you can see, these seemingly complex and illogical jupyter notebooks do not achieve the modularity and portability of MAg. So we provide a very early version of the MAg_lib library and hope it can help you call it directly. Here are some instrutions and tips that may help you when using the MAg_lib.
+As you can see, these seemingly complex and illogical jupyter notebooks do not achieve the modularity and portability of MAg. So we provide a very early version of the MAg_lib library and hope it can help you call it directly (Up to now, we only provide the MAg method using SVM. In the future, we may add other ML methods into it). Here are some instrutions and tips that may help you when using the MAg_lib.
 
 1. In the MAg_lib, in order to achieve a more concise code, we no longer use **xlsx** format files to store data. Instead, we use **dict(or json)** format to perform the functions. So in /MAg/MAg_lib/MAg/convert_format.py, we provide the functions **json_file_to_dict** and **dict_to_json_file** to do the conversion task between **dict** and **json** file.
 
@@ -80,13 +80,34 @@ The ```save_features_dict``` is like:
 
 <img width="209" alt="c91c1bd0d4fa8d97c6dea70467fa5d5" src="https://user-images.githubusercontent.com/72646258/140742784-1bf1a7d3-b015-4b91-b679-b20815248d4c.png">
 
-In fact, the function we provide can directly perform patient-level prediction on the json file containing the name of patches, that is, if you are not interested in getting the features and want to skip it, please use this function directly:
+In fact, the function we provide can directly perform patient-level prediction on the json file containing the name of patches, that is, if you are not interested in getting the features and want to skip it, please use this function directly and you will get the prediction results:
 
-'''
+```
 save_predict_dict = MAg_lib.modules.MAg.patient_predict(model, path_to_test_json, method, hist_num, svm)
-'''
+```
 
-**NOTE**: up to know we provide three choices in the parameter ```method```: 'counting', 'averaging', ''MAg, which represent counting baseline, averaging baseline and our MAg method. And the ```histnum``` and ```svm``` are required only when you choose 'MAg'.
+**NOTE**: up to know we provide three choices in the parameter ```method```: 'counting', 'averaging', ''MAg, which represent counting baseline, averaging baseline and our MAg method. And the ```hist_num``` and ```svm``` are required only when you choose 'MAg'.
+
+Then you can get the dict which contains the final patient-level prediction results. The ```save_predict_dict``` is like:
+
+<img width="277" alt="ad6ed3f70b04f28cb4f5d5097f762d2" src="https://user-images.githubusercontent.com/72646258/140745772-b3ff4de8-b274-4d59-9f7a-a936dffbd44a.png">
+
+3. Then you may ask such a question: How can I get the SVM I need in MAg? The ```sklearn.svm``` solve it smoothly. In our initial experiments, we manually adjusted the parameters of the SVM to obtain the best performing one on the validation set to do the prediction task. (**Please remember to use ```MAg_lib.modules.convert_format.convert_feature``` to convert the json file containing features to the feature list for training and validation**)
+
+Here we also provide a naive function similar to the grid search method for parameter optimization for your reference. If you have some better optimization methods, please contact us and we are willing to discuss about this topic:
+
+```
+from MAg_lib.modules.MAg import find_best_svm
+best_parameters = find_best_svm(X,y,X_val,y_val,['sigmoid'],C,class_weight)
+```
+
+```X,y```represent training set and ```X_val,y_val``` represent validation set. The next three parameters are three lists which provide the kernals, penalty coefficients and class weights you wan to let this function try.
+
+And BTW, here is another function which can evaluate the performance of SVM:
+
+```
+eval_dict = MAg_lib.modules.MAg.evaluate(X_val,y_val,svm)
+```
 
 # Experiment and results
 The experiments were performed on a Google Colab workstation with a NVIDIA Tesla P100 GPU. In stage I, five prevalent approaches have been used to be the baseline feature extractors, including ResNet, MobileNetV2, EfficientNet, Dpn, and ResNext models. And in stage II, we mainly use SVM to complete it. Moreover, to assess the generalizability, the experiments above were done in both the CRC dataset and the STAD dataset.
