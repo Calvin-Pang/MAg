@@ -66,9 +66,27 @@ As you can see, these seemingly complex and illogical jupyter notebooks do not a
 
 First, you need three json files that associate the sample names with the pathes of the patches, corresponding to the training set, validation set, and test set. The format of the files is like:
 
-<img width="217" alt="69c29cad9954e40e47f420ff252efe7" src="https://user-images.githubusercontent.com/72646258/140739492-6be87524-4bbb-4af0-99f2-6b23b79ef395.png">
+<img width="212" alt="ce1e16d7a374731442c75fba0598dc4" src="https://user-images.githubusercontent.com/72646258/140742761-1f3e918b-b7e9-45b1-88e7-f447c7c78c0c.png">
 
-Second, you need to do the patch-level prediction with the classification which is the same as the step1 in [**How to use MAg?**](#how-to-use-mag)
+Second, you need to do the patch-level prediction with the classification which is the same as the step1 in [**How to use MAg?**](#how-to-use-mag). With the function in MAg_lib, you can directly get the dict contains patient_level features (**Please remember to do this step in all three set so that you can do the next step!**). Here is the example code:
+
+```
+import MAg_lib.modules
+import timm
+model = timm.create_model(model_name, num_classes = 2,checkpoint_path = path_to_model)
+save_features_dict = MAg_lib.modules.MAg.get_feature(model,path_to_step1_json,hist_num = 10)
+```
+The ```save_features_dict``` is like:
+
+<img width="209" alt="c91c1bd0d4fa8d97c6dea70467fa5d5" src="https://user-images.githubusercontent.com/72646258/140742784-1bf1a7d3-b015-4b91-b679-b20815248d4c.png">
+
+In fact, the function we provide can directly perform patient-level prediction on the json file containing the name of patches, that is, if you are not interested in getting the features and want to skip it, please use this function directly:
+
+'''
+save_predict_dict = MAg_lib.modules.MAg.patient_predict(model, path_to_test_json, method, hist_num, svm)
+'''
+
+**NOTE**: up to know we provide three choices in the parameter ```method```: 'counting', 'averaging', ''MAg, which represent counting baseline, averaging baseline and our MAg method. And the ```histnum``` and ```svm``` are required only when you choose 'MAg'.
 
 # Experiment and results
 The experiments were performed on a Google Colab workstation with a NVIDIA Tesla P100 GPU. In stage I, five prevalent approaches have been used to be the baseline feature extractors, including ResNet, MobileNetV2, EfficientNet, Dpn, and ResNext models. And in stage II, we mainly use SVM to complete it. Moreover, to assess the generalizability, the experiments above were done in both the CRC dataset and the STAD dataset.
