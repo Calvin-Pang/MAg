@@ -1,10 +1,10 @@
 # MAg
 - [Abstract](#abstract)
-- [File structure](#file-stract)
+- [File structure](#file-structure)
 - [Dataset prepare](#dataset-prepare)
-- [Dataset description](#dataset-description)
+- [Data description](#data-description)
 - [How to use MAg?](#how-to-use-mag)
-- [Why not try the MAg_lib!](#why-not-try-the-mag-lib)
+- [Why not try the MAg_lib!](#why-not-try-the-mag_lib)
 - [Experiment and results](#experiment-and-results)
 - [Some supplements](#some-supplements)
 
