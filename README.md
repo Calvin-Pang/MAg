@@ -1,6 +1,15 @@
-- haha
+# MAg
+- [Abstract](#abstract)
+- [File structure](#file-stract)
+- [Dataset prepare](#dataset-prepare)
+- [Dataset description](#dataset-description)
+- [How to use MAg?](#how-to-use-mag)
+- [Why not try the MAg_lib!](#why-not-try-the-mag-lib)
+- [Experiment and results](#experiment-and-results)
+- [Some supplements](#some-supplements)
 
-# MAg: a simple learning-based patient-level aggregation method for detecting microsatellite instability from whole-slide images
+## Abstract
+### MAg: a simple learning-based patient-level aggregation method for detecting microsatellite instability from whole-slide images
 The prediction of microsatellite instability (MSI) and microsatellite stability (MSS) is essential in predicting both the treatment response and prognosis of gastrointestinal cancer. In clinical practice, a universal MSI testing is recommended, but the accessibility of such a test is limited. Thus, a more cost-efficient and broadly accessible tool is desired to cover the traditionally untested patients. In the past few years, deep-learning-based algorithms have been proposed to predict MSI directly from haematoxylin and eosin (H&E)-stained whole-slide images (WSIs). Such algorithms can be summarized as (1) patch-level MSI/MSS prediction, and (2) patient-level aggregation. Compared with the advanced deep learning approaches that have been employed for the first stage, only the naïve first-order statistics (e.g., averaging and counting) were employed in the second stage. In this paper, we propose a simple yet broadly generalizable patient-level MSI aggregation (MAg) method to effectively integrate the precious patch-level information. Briefly, the entire probabilistic distribution in the first stage is modeled as histogram-based features to be fused as the final outcome with machine learning (e.g., SVM). The proposed MAg method can be easily used in a plug-and-play manner, which has been evaluated upon five broadly used deep neural networks: ResNet, MobileNetV2, EfficientNet, Dpn and ResNext. From the results, the proposed MAg method consistently improves the accuracy of patient-level aggregation for two publicly available datasets. It is our hope that the proposed method could potentially leverage the low-cost H&E based MSI detection method.
 The comparison of our method and the two common used method (counting and averaging) is shown below:
 
@@ -9,19 +18,19 @@ The proposed method is shown in figure below:
 
 <div align=center><img src="https://user-images.githubusercontent.com/72646258/138407814-e2888b56-878c-4ea3-998a-4ffa511e1c95.png" height="300"/><br/></div>
 
-# File structure
+## File structure
 Here is the structure of the MAg file:
 
 ![image](https://user-images.githubusercontent.com/72646258/138487068-c231137c-0da2-4850-8fe8-104faf5d5cc8.png)
 
-# Dataset prepare
+## Dataset prepare
 1.The whole patch-level datasets can be downloaded from https://zenodo.org/record/2530835#.YXIlO5pBw2z. Each patch in this folder belongs to a patient, and the file name of the patch can be used to get to which patient it belongs. For example, the patch **blk-AAAFIYHTSVIE-TCGA-G4-6309-01Z-00-DX1.png** belongs to the patient **TCGA-G4-6309**.
 
 2.We have split the CRC_DX and STAD datasets into training set, validation set and testing set in the patient-level. So after downloading them from the link, please split the dataset according to the patient name we list in the **name_patient** file. 
 
 3.Certainly, if you want to change the way of splitting the data set, you can also split the data set by yourself. For your reference, you can use the code in link https://github.com/jnkather/MSIfromHE/blob/master/step_05_split_train_test.m to do this split.
 
-# Data description 
+## Data description 
 For your experiment to go smoothly, this is the description of some data you may use to input or output in the process of reproducing the MAg：
 
 1.In the code **2.0.patch2image_counting.ipynb**, you will use the files which supply names of patients and these files are placed in the file **/MAg/name_patients/**. The names of patients are provided in this folder according to different datasets, sets and classes. 
@@ -36,7 +45,7 @@ For your experiment to go smoothly, this is the description of some data you may
 
 5.We also provide names of patches in the folder **/MAg/name_patch**
 
-# How to use MAg?
+## How to use MAg?
 The code of our method is in the **demo** file. Follow the steps below, you can easily use MAg to complete training and prediction.
 
 1.Firstly, please use **1.patch-level classification training.ipynb** to do patch-level training and get classification models. The Timm library is such a creative invention that it can help you easily complete this training process. For example, if you want to use ResNet18 in this stage, just use the code below after entering the working file:
@@ -59,7 +68,7 @@ Also, here are some very helpful links that teachs you how to use Timm: https://
 
 5.In the **demo** file, we also provide some notebooks whose file names start with 0. These demos are used by us in our experiment. Although they are not directly related to the MAg process, we think they may be able to help you in your own experiment. Their roles are different. For example, **0.3.confusion_matrix.ipynb** can help you calculate a patient-level confusion matrix. The role of each demo can be viewed at the beginning of their code.
 
-# Or you can try the MAg_lib!
+## Why not try the MAg_lib!
 As you can see, these seemingly complex and illogical jupyter notebooks do not achieve the modularity and portability of MAg. So we provide a very early version of the MAg_lib library and hope it can help you call it directly (Up to now, we only provide the MAg method using SVM. In the future, we may add other ML methods into it). Here are some instrutions and tips that may help you when using the MAg_lib.
 
 1. In the MAg_lib, in order to achieve a more concise code, we no longer use **xlsx** format files to store data. Instead, we use **dict(or json)** format to perform the functions. So in /MAg/MAg_lib/MAg/convert_format.py, we provide the functions **json_file_to_dict** and **dict_to_json_file** to do the conversion task between **dict** and **json** file.
@@ -111,11 +120,11 @@ And BTW, here is another function which can evaluate the performance of SVM:
 eval_dict = MAg_lib.modules.MAg.evaluate(X_val,y_val,svm)
 ```
 
-# Experiment and results
+## Experiment and results
 The experiments were performed on a Google Colab workstation with a NVIDIA Tesla P100 GPU. In stage I, five prevalent approaches have been used to be the baseline feature extractors, including ResNet, MobileNetV2, EfficientNet, Dpn, and ResNext models. And in stage II, we mainly use SVM to complete it. Moreover, to assess the generalizability, the experiments above were done in both the CRC dataset and the STAD dataset.
 Below is the results of our experiments and comparison between MAg and two commonly used methods (counting and averaging):
 
 <img src="https://user-images.githubusercontent.com/72646258/138465280-e289b796-d3db-47c3-9c79-a2b355fc156f.png" height="220"/><img src="https://user-images.githubusercontent.com/72646258/138465330-1668c95f-b545-4cdb-93c3-a219e7d8be5c.png" height="220"/><br/>
 
-# Some supplements
+## Some supplements
 Because our research is still in a very early stage of exploration, our code may have some defects. In the future, we may continue to improve the code, hoping that it can achieve higher portability and modularity. If you encounter any problems in the process of using MAg or have any suggestions for this research, please let us know in github or contact us directly :blush:
