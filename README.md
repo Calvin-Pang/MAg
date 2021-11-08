@@ -66,7 +66,7 @@ As you can see, these seemingly complex and illogical jupyter notebooks do not a
 
 First, you need three json files that associate the sample names with the pathes of the patches, corresponding to the training set, validation set, and test set. The format of the files is like:
 <img width="217" alt="69c29cad9954e40e47f420ff252efe7" src="https://user-images.githubusercontent.com/72646258/140739492-6be87524-4bbb-4af0-99f2-6b23b79ef395.png">
-Second, you need to do the patch-level prediction with the classification which is the same as the step1 in [**How to use MAg?**](#how-to-use-mag?)
+Second, you need to do the patch-level prediction with the classification which is the same as the step1 in [**How to use MAg?**](# how-to-use-mag?)
 
 # Experiment and results
 The experiments were performed on a Google Colab workstation with a NVIDIA Tesla P100 GPU. In stage I, five prevalent approaches have been used to be the baseline feature extractors, including ResNet, MobileNetV2, EfficientNet, Dpn, and ResNext models. And in stage II, we mainly use SVM to complete it. Moreover, to assess the generalizability, the experiments above were done in both the CRC dataset and the STAD dataset.
