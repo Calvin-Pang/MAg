@@ -48,7 +48,6 @@ Also, here are some very helpful links that teachs you how to use Timm: https://
 
 2.Secondly, after using the above process to obtain the classification model in the patch-level, you can use **2.0.patch2image_counting.ipynb** to make the patch-level prediction. In this process, just follow the operation of the code in the notebook and you can get patch-level probabilities and histogram-based features. 
 
-**NOTE**: in our experiments, we use xlsx format files to save predicted probability scores and other data. You can also freely modify the code to use other formats such as json format files to save the results, but it may make the code more complicated.
 
 3.After getting the patch-level model and patient-level histogram-based features from processes above, you can now train the patient-level classification models. Here we provide two different methods to complete this training, which means you can train it in an SVM with **2.1.patient-level MAg-SVM_histogram.ipynb** or in a two-layer fully-connected neural network with **2.2.patient-level MAg-network.ipynb**. If your dataset is not very large, we suggest you using the **2.1** while you had better use **2.2** if you have a hugh dataset(e.g, a dataset which contains 100000 patients).
 
@@ -57,6 +56,17 @@ Also, here are some very helpful links that teachs you how to use Timm: https://
 **NOTE**: the patient-level training also require you to follow the split you did before, so please remember to save the patient-level histogram-based features in xlsx files like train.xlsx, validation.xlsx and test.xlsx
 
 5.In the **demo** file, we also provide some notebooks whose file names start with 0. These demos are used by us in our experiment. Although they are not directly related to the MAg process, we think they may be able to help you in your own experiment. Their roles are different. For example, **0.3.confusion_matrix.ipynb** can help you calculate a patient-level confusion matrix. The role of each demo can be viewed at the beginning of their code.
+
+# Or you can try the MAg_lib!
+As you can see, these seemingly complex and illogical jupyter notebooks do not achieve the modularity and portability of MAg. So we provide a very early version of the MAg_lib library and hope it can help you call it directly. Here are some instrutions and tips that may help you when using the MAg_lib.
+
+1. In the MAg_lib, in order to achieve a more concise code, we no longer use **xlsx** format files to store data. Instead, we use **dict(or json)** format to perform the functions. So in /MAg/MAg_lib/MAg/convert_format.py, we provide the functions **json_file_to_dict** and **dict_to_json_file** to do the conversion task between **dict** and **json** file.
+
+2. Now let us see how to use the much more concise **MAg_lib** to achieve the MAg task! The functions in this library have their own unique purposes, so we strongly recommend that you open these files before using them and quickly scan the comments of each function to understand their role and input and output formats, and then combine them according to your needs. Here is an example to use it:
+
+First, you need three json files that associate the sample names with the pathes of the patches, corresponding to the training set, validation set, and test set. The format of the files is like:
+<img width="217" alt="69c29cad9954e40e47f420ff252efe7" src="https://user-images.githubusercontent.com/72646258/140739492-6be87524-4bbb-4af0-99f2-6b23b79ef395.png">
+Second, you need to do the patch-level prediction with the classification which is the same as the step1 in [**How to use MAg?**](#how-to-use-mag?)
 
 # Experiment and results
 The experiments were performed on a Google Colab workstation with a NVIDIA Tesla P100 GPU. In stage I, five prevalent approaches have been used to be the baseline feature extractors, including ResNet, MobileNetV2, EfficientNet, Dpn, and ResNext models. And in stage II, we mainly use SVM to complete it. Moreover, to assess the generalizability, the experiments above were done in both the CRC dataset and the STAD dataset.
