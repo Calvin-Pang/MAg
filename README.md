@@ -112,7 +112,7 @@ from MAg_lib.modules.MAg import find_best_svm
 best_parameters = find_best_svm(X,y,X_val,y_val,['sigmoid'],C,class_weight)
 ```
 
-```X,y```represent training set and ```X_val,y_val``` represent validation set. The next three parameters are three lists which provide the kernals, penalty coefficients and class weights you wan to let this function try.
+```X,y```represent training set and ```X_val,y_val``` represent validation set. The next three parameters are three lists which provide the kernals, penalty coefficients and class weights you want to let this function try.
 
 And BTW, here is another function which can evaluate the performance of SVM:
 
