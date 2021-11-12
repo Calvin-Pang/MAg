@@ -5,6 +5,7 @@
 - [Data description](#data-description)
 - [How to use MAg?](#how-to-use-mag)
 - [Why not try the MAg_lib!](#why-not-try-the-mag_lib)
+- [Trained models](#trained-models)
 - [Experiment and results](#experiment-and-results)
 - [Some supplements](#some-supplements)
 
@@ -119,6 +120,10 @@ And BTW, here is another function which can evaluate the performance of SVM:
 ```
 eval_dict = MAg_lib.modules.MAg.evaluate(X_val,y_val,svm)
 ```
+## Trained models
+In the folder [trained models](https://github.com/Calvin-Pang/MAg/tree/main/trained%20models), we provide the parameters of the SVMs in our past experiments that can make the model get the best performance on the validation set. 
+
+**NOTE**: if you want to use our data for stage-2 training, these parameters are only applicable to experiments that do not use oversampling on the MSIMUT class, that is, please just set the training samples for 188 in CRC_DX and 124 in STAD and do not use the rest copied samples. Or if you want to try to use oversampling on the MSIMUT class, you are more than welcome to tell us your results.
 
 ## Experiment and results
 The experiments were performed on a Google Colab workstation with a NVIDIA Tesla P100 GPU. In stage I, five prevalent approaches have been used to be the baseline feature extractors, including ResNet, MobileNetV2, EfficientNet, Dpn, and ResNext models. And in stage II, we mainly use SVM to complete it. Moreover, to assess the generalizability, the experiments above were done in both the CRC dataset and the STAD dataset.
