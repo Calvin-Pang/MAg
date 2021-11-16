@@ -67,7 +67,9 @@ Also, here are some very helpful links that teachs you how to use Timm: https://
 
 **NOTE**: the patient-level training also require you to follow the split you did before, so please remember to save the patient-level histogram-based features in xlsx files like train.xlsx, validation.xlsx and test.xlsx
 
-5.In the [**demo**]((https://github.com/Calvin-Pang/MAg/tree/main/demo)) file, we also provide some notebooks whose file names start with 0. These demos are used by us in our experiment. Although they are not directly related to the MAg process, we think they may be able to help you in your own experiment. Their roles are different. For example, [**0.3.confusion_matrix.ipynb**](https://github.com/Calvin-Pang/MAg/blob/main/demo/0.3.confusion_matrix.ipynb) can help you calculate a patient-level confusion matrix. The role of each demo can be viewed at the beginning of their code.
+5.If you just want to get the reproduced result according to our parameters of SVM, please use the demo [reproduce_demo.ipynb](https://github.com/Calvin-Pang/MAg/blob/main/demo/reproduce_demo.ipynb)
+
+6.In the [**demo**]((https://github.com/Calvin-Pang/MAg/tree/main/demo)) file, we also provide some notebooks whose file names start with 0. These demos are used by us in our experiment. Although they are not directly related to the MAg process, we think they may be able to help you in your own experiment. Their roles are different. For example, [**0.3.confusion_matrix.ipynb**](https://github.com/Calvin-Pang/MAg/blob/main/demo/0.3.confusion_matrix.ipynb) can help you calculate a patient-level confusion matrix. The role of each demo can be viewed at the beginning of their code.
 
 ## Why not try the MAg_lib!
 As you can see, these seemingly complex and illogical jupyter notebooks do not achieve the modularity and portability of MAg. So we provide a very early version of the MAg_lib library and hope it can help you call it directly (Up to now, we only provide the MAg method using SVM. In the future, we may add other ML methods into it). Here are some instrutions and tips that may help you when using the MAg_lib.
