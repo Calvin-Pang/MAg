@@ -106,7 +106,7 @@ In fact, the function we provide can directly perform patient-level prediction o
 save_predict_dict = MAg_lib.modules.MAg.patient_predict(model, path_to_test_json, method, hist_num, svm)
 ```
 
-**NOTE**: up to now we provide three choices in the parameter ```method```: 'counting', 'averaging', ''MAg, which represent counting baseline, averaging baseline and our MAg method. And the ```hist_num``` and ```svm``` are required only when you choose 'MAg'.
+**NOTE**: up to now we provide three choices in the parameter ```method```: 'counting', 'averaging', 'MAg', which represent counting baseline, averaging baseline and our MAg method. And the ```hist_num``` and ```svm``` are required only when you choose 'MAg'.
 
 Then you can get the dict which contains the final patient-level prediction results. The ```save_predict_dict``` is like:
 
