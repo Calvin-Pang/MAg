@@ -14,6 +14,7 @@
 This is code and some potentially useful data of the paper [**MAg: a simple learning-based patient-level aggregation method for detecting microsatellite instability from whole-slide images**](https://arxiv.org/abs/2201.04769).
 
 Our paper has been accepted in the IEEE International Symposium on Biomedical Imaging (ISBI) 2022. And the arXiv link is here: https://arxiv.org/abs/2201.04769.
+
 Here is the video of our prresentation prepared for IEEE ISBI 2022: https://youtu.be/Ln60y3aGthc
 
 ## Abstract
