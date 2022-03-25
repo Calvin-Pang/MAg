@@ -85,7 +85,7 @@ As you can see, these seemingly complex and illogical jupyter notebooks do not a
 
 2. Now let us see how to use the much more concise [**MAg_lib**](https://github.com/Calvin-Pang/MAg/tree/main/MAg_lib/) to achieve the MAg task! The functions in this library have their own unique purposes, so we strongly recommend that you open these files before using them and quickly scan the comments of each function to understand their role and input and output formats, and then combine them according to your needs. Here is an example to use it:
 
-First, you need three json files that associate the sample names with the pathes of the patches, corresponding to the training set, validation set, and test set. The format of the files is like:
+First, you need three json files that associate the sample names with the pathes of the patients, corresponding to the training set, validation set, and test set. The format of the files is like:
 
 <img width="212" alt="ce1e16d7a374731442c75fba0598dc4" src="https://user-images.githubusercontent.com/72646258/140742761-1f3e918b-b7e9-45b1-88e7-f447c7c78c0c.png">
 
