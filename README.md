@@ -38,6 +38,8 @@ Here is the structure of the MAg file:
 
 3.Certainly, if you want to change the way of splitting the data set, you can also split the data set by yourself. For your reference, you can use the code in link https://github.com/jnkather/MSIfromHE/blob/master/step_05_split_train_test.m to do this split.
 
+4.Here is our split dataset: [**CRC_DX**](https://drive.google.com/drive/folders/1sQR_4_ZjOW8IWk8cMdsF2MTMOmfS9Y06?usp=sharing) and [**STAD**](https://drive.google.com/drive/folders/1ntb9MLvBx7ptyEA3dGhpQiM1nKg-jVCH?usp=sharing).
+
 ## Data description 
 For your experiment to go smoothly, this is the description of some data you may use to input or output in the process of reproducing the MAg：
 
