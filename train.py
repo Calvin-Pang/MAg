@@ -755,7 +755,7 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
                 output = output[0]
 
             # augmentation reduction
-            reduce_factor = args.tt
+            reduce_factor = args.tta
             if reduce_factor > 1:
                 output = output.unfold(0, reduce_factor, reduce_factor).mean(dim=2)
                 target = target[0:target.size(0):reduce_factor]
