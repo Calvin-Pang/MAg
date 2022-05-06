@@ -3,6 +3,8 @@ This is code and some potentially useful data of the paper [**MAg: a simple lear
 
 **Our paper has been accepted in the IEEE International Symposium on Biomedical Imaging (ISBI) 2022. And the arXiv link is here: https://arxiv.org/abs/2201.04769.**
 
+**Update: Our papaer has been published: https://ieeexplore.ieee.org/document/9761500.**
+
 Here is the video of our prresentation prepared for IEEE ISBI 2022: https://youtu.be/Ln60y3aGthc
 
 ## Content
